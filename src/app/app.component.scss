@@ -15,7 +15,6 @@ nav h4 {
 .sidebar {
   background-color: #fff;
   padding: 2em 1em;
-
   &.ng-sidebar--opened.ng-sidebar--over {
     box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
   }
@@ -24,4 +23,10 @@ nav h4 {
 .content {
   height: 100%;
   z-index: 99999999;
+}
+
+.sidebar-content {
+  height: 100%;
+  background-color: white;
+  box-shadow: 10px 10px 12px 0px rgba(0, 0, 0, 0.75);
 }

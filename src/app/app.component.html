@@ -1,25 +1,9 @@
-
-
 <ng-sidebar-container class="sidebar-wrapper">
   <!-- A sidebar -->
-  <ng-sidebar
-    sidebarClass="sidebar"
-    [(opened)]="_opened"
-    showBackdrop=true
-    mode="push"
-
-    style="background-color: #fff;"
-    >
-
-    <!-- https://echeung.me/ng-sidebar/
-
-      Demo:
-        https://github.com/arkon/ng-sidebar/blob/master/demo/src/styles/styles.scss
-        https://github.com/arkon/ng-sidebar/blob/master/demo/src/demo/demo.component.ts
-    -->
-
-    <p>Sidebar contents</p>
-    <p>!!!</p>
+  <ng-sidebar sidebarClass="sidebar" [(opened)]="_opened" showBackdrop=true mode="over" closeOnClickBackdrop=true>
+    <div class="sidebar-content">
+      <h1>H!</h1>
+    </div>
   </ng-sidebar>
 
   <div ng-sidebar-content class="content">
