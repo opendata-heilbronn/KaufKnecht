@@ -5,11 +5,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-import { OrdererComponent } from './orderer/orderer.component';
-import { ShopperComponent } from './shopper/shopper.component';
 import { environment } from '../environments/environment';
+
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { MyTransactionsComponent } from './components/my-transactions/my-transactions.component';
 import { TransactionListDetailsComponent } from './components/transaction-list-details/transaction-list-details.component';
