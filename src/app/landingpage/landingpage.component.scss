@@ -1,5 +1,5 @@
 .landing-page-wrapper {
-  height: calc(100% - 60px);
+  height: calc(100% - 60px - 12px);
 }
 
 .landing-page-wrapper > .page-half {
@@ -8,7 +8,7 @@
 
 .page-half {
   display: flex;
-  height: 50%;
+
   min-height: 50%;
   color: white;
   align-items: center;
@@ -16,18 +16,26 @@
   cursor: pointer;
 
   background-size: cover;
+
+  height: calc(50%);
+
+  /*opacity: 0.7;*/
 }
 
 .page-half-above {
   background: url('/assets/shopping-cart.jpg') no-repeat center center fixed;
   background-size: cover;
+  
+  margin-bottom: 12px;
 }
 
 .page-half-below {
   background: url('/assets/living-room.jpg') no-repeat center center fixed;
   background-size: cover;
+
+  background-position-y: 100%;
 }
 
 .page-half > h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
