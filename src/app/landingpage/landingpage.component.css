@@ -9,7 +9,10 @@
 .page-half {
   height: 50%;
   min-height: 50%;
-  display: flex
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .page-half-above {
@@ -18,4 +21,8 @@
 
 .page-half-below {
   background-color: orange;
+}
+
+.page-half > h2 {
+  color: white;
 }
