@@ -12,20 +12,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', component: LandingpageComponent },
 
-  {
-    path: 'transactions',
-    component: TransactionListComponent,
-    children: [
-      { path: 'details', component: TransactionListDetailsComponent }
-    ]
-  },
-  {
-    path: 'me',
-    component: MyTransactionsComponent,
-    children: [
-      { path: 'details', component: MyTransactionsDetailsComponent }
-    ]
-  },
+  { path: 'transactions', component: TransactionListComponent },
+  { path: 'transactions/:id', component: TransactionListDetailsComponent }
+  { path: 'me', component: MyTransactionsComponent },
+  { path: 'me/:id', component: MyTransactionsDetailsComponent },
 
   { path: '**', component: PageNotFoundComponent },
 ];
