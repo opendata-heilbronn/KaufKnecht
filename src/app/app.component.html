@@ -8,9 +8,13 @@
 
   <div ng-sidebar-content class="content">
     <nav class="d-flex justify-content-between">
-      <i class="fas fa-bars 2x" (click)="toggleSidebar()"></i>
-      <h4>Navigation Bar</h4>
-      <div class="icon-container align-self-center mr-4">
+      <div class="icon-container align-self-center ml-3">
+        <i class="fas fa-bars fa-2x" (click)="toggleSidebar()"></i>
+      </div>
+
+      <h4>KaufKnecht</h4>
+
+      <div class="icon-container align-self-center mr-3">
         <i class="fas fa-filter fa-2x" *ngIf="showFilterIcon()"></i>
       </div>
     </nav>
