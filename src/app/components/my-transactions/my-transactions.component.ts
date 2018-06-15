@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TransactionModel } from './../../models/transaction.model';
+
 @Component({
   selector: 'app-my-transactions',
   templateUrl: './my-transactions.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTransactionsComponent implements OnInit {
 
+  transactions: TransactionModel[];
+
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
