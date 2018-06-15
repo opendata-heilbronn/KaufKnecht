@@ -2,6 +2,8 @@
   <button (click)="sidebar.open()">Open sidebar</button>
 </nav>
 
+
+<router-outlet></router-outlet>
 <ng-sidebar-container>
   <!-- A sidebar -->
   <ng-sidebar [(opened)]="_opened">
@@ -17,4 +19,3 @@
       <button (click)="sidebar.close()">Close sidebar</button>
     </ng-sidebar>
 </ng-sidebar-container>
-<router-outlet></router-outlet>
