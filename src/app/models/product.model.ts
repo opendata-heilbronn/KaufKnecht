@@ -1,5 +1,6 @@
+import { BaseModel } from './_base.model';
 
-export class ProductModel {
+export class ProductModel extends BaseModel {
   id: string;
   basePrice: string;
   description: string;
@@ -13,4 +14,9 @@ export class ProductModel {
   subtitle: string;
   title: string;
   unit: string;
+
+  constructor(data: any) {
+    super();
+    super.$map(this, data);
+  }
 }
