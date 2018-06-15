@@ -7,7 +7,7 @@
     [(opened)]="_opened"
     showBackdrop=true
     mode="push"
-    
+
     style="background-color: #fff;"
     >
 
@@ -23,9 +23,11 @@
   </ng-sidebar>
 
   <div ng-sidebar-content class="content">
-    <nav>
+    <nav class="d-flex">
       <button class="toggle-sidebar" (click)="_toggleSidebar()">Toggle sidebar</button>
       <h4>Navigation Bar</h4>
+
+      <div class="ml-auto">foo</div>
     </nav>
     <router-outlet></router-outlet>
   </div>
