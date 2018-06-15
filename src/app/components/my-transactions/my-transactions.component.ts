@@ -14,7 +14,12 @@ export class MyTransactionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    this.transactions = [
+      new TransactionModel({
+        creator: 'RXxa8l9Qm1PTJe6YpoW6YL7P04T2',
+        created: new Date()
+      })
+    ];
   }
 
 }
