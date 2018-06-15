@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-landingpage',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {}
+
+  goOrderer() {
+    this.router.navigate(['orderer']); 
+  }
+
+  goShopper() {
+    this.router.navigate(['shopper']);
+  }
 
   ngOnInit() {
   }
