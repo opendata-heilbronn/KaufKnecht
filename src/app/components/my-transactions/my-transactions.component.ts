@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TransactionModel } from './../../models/transaction.model';
+import { ListEntryModel } from './../../models/transaction.model';
 
 @Component({
   selector: 'app-my-transactions',
@@ -17,7 +18,12 @@ export class MyTransactionsComponent implements OnInit {
     this.transactions = [
       new TransactionModel({
         creator: 'RXxa8l9Qm1PTJe6YpoW6YL7P04T2',
-        created: new Date()
+        created: new Date(),
+        item: [
+          new ListEntryModel({
+
+          })
+        ]
       })
     ];
   }
