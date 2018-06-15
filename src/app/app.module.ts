@@ -10,6 +10,10 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
 import { OrdererComponent } from './orderer/orderer.component';
 import { ShopperComponent } from './shopper/shopper.component';
 import { environment } from '../environments/environment';
+import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
+import { MyTransactionsComponent } from './components/my-transactions/my-transactions.component';
+import { TransactionListDetailsComponent } from './components/transaction-list-details/transaction-list-details.component';
+import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { environment } from '../environments/environment';
     PageNotFoundComponent,
     LandingpageComponent,
     OrdererComponent,
-    ShopperComponent
+    ShopperComponent,
+    TransactionListComponent,
+    MyTransactionsComponent,
+    TransactionListDetailsComponent,
+    MyTransactionsDetailsComponent
   ],
   imports: [
     BrowserModule,
