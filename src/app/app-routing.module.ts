@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'landing', component: LandingpageComponent },
 
   { path: 'transactions', component: TransactionListComponent },
-  { path: 'transactions/:id', component: TransactionListDetailsComponent }
+  { path: 'transactions/:id', component: TransactionListDetailsComponent },
   { path: 'me', component: MyTransactionsComponent },
   { path: 'me/:id', component: MyTransactionsDetailsComponent },
 

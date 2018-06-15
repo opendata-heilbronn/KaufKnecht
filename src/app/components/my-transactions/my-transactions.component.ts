@@ -14,6 +14,7 @@ export class MyTransactionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
