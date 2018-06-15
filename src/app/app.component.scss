@@ -1,8 +1,33 @@
-.navbar {
+nav {
   height: 60px;
 }
 
-.navbar h4 {
+nav h4 {
   margin: 0;
-  padding: 24px 0 0;
-} 
+  padding: 24px 0 0 12px;
+  display: inline-block;
+}
+
+.toggle-sidebar {
+  display: inline-block
+}
+
+.sidebar {
+  background-color: #fff;
+  padding: 2em 1em;
+
+  &.ng-sidebar--opened.ng-sidebar--over {
+    box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
+  }
+}
+
+.content {
+  height: 100%;
+  z-index: 99999999;
+}
+
+.icon-container {
+  align-items: center;
+}
+
+

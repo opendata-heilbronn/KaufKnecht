@@ -15,6 +15,7 @@ import { TransactionListDetailsComponent } from './components/transaction-list-d
 import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
 import { SidebarModule } from 'ng-sidebar';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { SidebarModule } from 'ng-sidebar';
     TransactionListComponent,
     MyTransactionsComponent,
     TransactionListDetailsComponent,
-    MyTransactionsDetailsComponent
+    MyTransactionsDetailsComponent,
   ],
   imports: [
     BrowserModule,

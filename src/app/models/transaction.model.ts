@@ -1,7 +1,8 @@
 
 import { ListEntryModel } from './list-entry.model';
+import { BaseModel } from './_base.model';
 
-export class TransactionModel {
+export class TransactionModel extends BaseModel {
   creator: string; // id des users
   created: Date;
 
@@ -19,4 +20,9 @@ export class TransactionModel {
   ratingExecutor: number;
 
   items: ListEntryModel[];
+
+  constructor(data: any) {
+    super();
+    super.$map(this, data);
+  }
 }

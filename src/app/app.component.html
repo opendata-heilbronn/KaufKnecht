@@ -1,21 +1,37 @@
-<nav>
-  <button (click)="sidebar.open()">Open sidebar</button>
-</nav>
-
-
-<router-outlet></router-outlet>
-<ng-sidebar-container>
+<ng-sidebar-container class="sidebar-wrapper">
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="_opened">
-      <p>Sidebar contents</p>
-    </ng-sidebar>
+  <ng-sidebar
+    sidebarClass="sidebar"
+    [(opened)]="_opened"
+    showBackdrop=true
+    mode="push"
 
-    <!-- Page content -->
-    <div ng-sidebar-content>
-      <button (click)="_toggleSidebar()">Toggle sidebar</button>
-    </div>
+    style="background-color: #fff;"
+    >
 
-    <ng-sidebar #sidebar>
-      <button (click)="sidebar.close()">Close sidebar</button>
-    </ng-sidebar>
+    <!-- https://echeung.me/ng-sidebar/
+
+      Demo:
+        https://github.com/arkon/ng-sidebar/blob/master/demo/src/styles/styles.scss
+        https://github.com/arkon/ng-sidebar/blob/master/demo/src/demo/demo.component.ts
+    -->
+
+    <p>Sidebar contents</p>
+    <p>!!!</p>
+  </ng-sidebar>
+
+  <div ng-sidebar-content class="content">
+    <nav class="d-flex justify-content-between">
+      <button class="toggle-sidebar" (click)="_toggleSidebar()">Toggle sidebar</button>
+      <h4>Navigation Bar</h4>
+      
+      <div class="icon-container align-self-center mr-4">
+        <i class="fas fa-filter fa-2x" *ngIf="_showFilterIcon()"></i>
+      </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+  </div>
+
 </ng-sidebar-container>
