@@ -2,7 +2,7 @@
   <!-- A sidebar -->
   <ng-sidebar
     sidebarClass="sidebar"
-    [(opened)]="_opened"
+    [(opened)]="opened"
     showBackdrop=true
     mode="push"
 
@@ -22,11 +22,11 @@
 
   <div ng-sidebar-content class="content">
     <nav class="d-flex justify-content-between">
-      <button class="toggle-sidebar" (click)="_toggleSidebar()">Toggle sidebar</button>
+      <button class="toggle-sidebar" (click)="toggleSidebar()">Toggle sidebar</button>
       <h4>Navigation Bar</h4>
       
       <div class="icon-container align-self-center mr-4">
-        <i class="fas fa-filter fa-2x" *ngIf="_showFilterIcon()"></i>
+        <i class="fas fa-filter fa-2x" *ngIf="showFilterIcon()"></i>
       </div>
     </nav>
 

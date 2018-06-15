@@ -11,13 +11,13 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  private _opened: boolean = false;
+  public opened: boolean = false;
 
-  private _showFilterIcon() {
+  public showFilterIcon() {
     return this.router.url === '/transactions';
   }
  
-  private _toggleSidebar() {
-    this._opened = !this._opened;
+  public toggleSidebar() {
+    this.opened = !this.opened;
   }
 }
