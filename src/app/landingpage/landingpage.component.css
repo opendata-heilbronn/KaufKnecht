@@ -1,10 +1,21 @@
+.landing-page-wrapper {
+  height: 100%;
+}
+
+.landing-page-wrapper > .page-half {
+  height: auto
+}
+
 .page-half {
   height: 50%;
   min-height: 50%;
+  display: flex
 }
 
-/*
-(parent) > .content {
-  height: auto
+.page-half-above {
+  background-color: chocolate;
 }
-*/
+
+.page-half-below {
+  background-color: orange;
+}
