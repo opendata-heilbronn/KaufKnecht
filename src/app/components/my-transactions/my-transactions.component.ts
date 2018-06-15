@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TransactionModel } from './../../models/transaction.model';
-import { ListEntryModel } from './../../models/transaction.model';
+import { ListEntryModel } from './../../models/list-entry.model';
 
 @Component({
   selector: 'app-my-transactions',
