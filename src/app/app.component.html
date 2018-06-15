@@ -1,6 +1,20 @@
-<nav class="navbar">
-  <h4>
-    Navigation bar
-  </h4>
+<nav>
+  <button (click)="sidebar.open()">Open sidebar</button>
 </nav>
+
+<ng-sidebar-container>
+  <!-- A sidebar -->
+  <ng-sidebar [(opened)]="_opened">
+      <p>Sidebar contents</p>
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content>
+      <button (click)="_toggleSidebar()">Toggle sidebar</button>
+    </div>
+
+    <ng-sidebar #sidebar>
+      <button (click)="sidebar.close()">Close sidebar</button>
+    </ng-sidebar>
+</ng-sidebar-container>
 <router-outlet></router-outlet>

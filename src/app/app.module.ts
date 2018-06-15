@@ -14,6 +14,7 @@ import { TransactionListComponent } from './components/transaction-list/transact
 import { MyTransactionsComponent } from './components/my-transactions/my-transactions.component';
 import { TransactionListDetailsComponent } from './components/transaction-list-details/transaction-list-details.component';
 import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MyTransactionsDetailsComponent } from './components/my-transactions-det
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    SidebarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
