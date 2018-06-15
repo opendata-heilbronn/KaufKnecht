@@ -14,12 +14,7 @@ export class AppComponent {
   private _opened: boolean = false;
 
   private _showFilterIcon() {
-    if (this.router.url === '/transactions') {
-      console.log(this.router);
-      return true;
-    } else {
-      return false;
-    }
+    return this.router.url === '/transactions';
   }
  
   private _toggleSidebar() {
