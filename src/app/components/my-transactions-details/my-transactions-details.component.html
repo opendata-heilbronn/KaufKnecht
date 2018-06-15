@@ -1,3 +1,18 @@
-<p>
-  my-transactions-details works!
-</p>
+<div class="list-group">
+  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of itemList">
+      <div class="d-flex">
+        <div class="align-self-center">
+          <img class="productImage" src="{{item.images[0]}}">
+        </div>
+        <div class="ml-5 mr-5 w-100">
+          <h3 class="mb-0">{{item.title}}</h3>
+          <p class="mb-0">{{item.description}}</p>
+        </div>
+        <div class="align-self-center">
+          <h1>
+            <span class="badge badge-pill badge-primary">{{item.count}}</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+</div>
