@@ -11,7 +11,7 @@ import { ListEntryModel } from '../../models/list-entry.model';
 export class MyTransactionsDetailsComponent implements OnInit {
 
   private mockItems: ListEntryModel[] = [];
-  private mockItem: ProductModel = new ProductModel();
+  private mockItem: ProductModel = new ProductModel(null);
   itemList: any[] = [];
 
 
@@ -30,7 +30,7 @@ export class MyTransactionsDetailsComponent implements OnInit {
     this.mockItem.title = "VitaSafe Melonen-Mix";
     this.mockItem.images = ["https://media.kaufland.com/images/PPIM/Lago/c16221167_6.jpg"];
 
-    this.mockItems.push(new ListEntryModel());
+    this.mockItems.push(new ListEntryModel(null));
     this.mockItems[0].id = "1";
     this.mockItems[0].count = 5;
 
