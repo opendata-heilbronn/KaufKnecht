@@ -1,5 +1,5 @@
 .landing-page-wrapper {
-  height: 100%;
+  height: calc(100% - 60px);
 }
 
 .landing-page-wrapper > .page-half {
@@ -7,22 +7,27 @@
 }
 
 .page-half {
+  display: flex;
   height: 50%;
   min-height: 50%;
-  display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  background-size: cover;
 }
 
 .page-half-above {
-  background-color: chocolate;
+  background: url('/assets/shopping-cart.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .page-half-below {
-  background-color: orange;
+  background: url('/assets/living-room.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .page-half > h2 {
-  color: white;
+  font-size: 2.5rem;
 }
