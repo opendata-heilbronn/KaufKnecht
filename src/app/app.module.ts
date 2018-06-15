@@ -19,8 +19,6 @@ import { MyTransactionsDetailsComponent } from './components/my-transactions-det
     AppComponent,
     PageNotFoundComponent,
     LandingpageComponent,
-    OrdererComponent,
-    ShopperComponent,
     TransactionListComponent,
     MyTransactionsComponent,
     TransactionListDetailsComponent,
