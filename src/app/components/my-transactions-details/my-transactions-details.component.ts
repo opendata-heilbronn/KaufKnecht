@@ -67,6 +67,11 @@ export class MyTransactionsDetailsComponent implements OnInit {
     this.router.navigate(['/me']);
   }
 
+  // TODO: Implement name querying
+  getUserNameWithKey(creatorId: string) {
+    return "Jörg";
+  }
+
   constructor(
     private db: AngularFireDatabase,
     private auth: AngularFireAuth,
