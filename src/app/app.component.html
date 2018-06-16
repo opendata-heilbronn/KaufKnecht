@@ -4,8 +4,8 @@
 
     <div class="sidebar-content">
       <div d-flex justify-content-between>
-        <i class="fas fa-user fa-2x"></i>
-        <i class="fas fa-arrow-left fa-2x"></i>
+        <i class="fas fa-user fa-2x" (click)="toggleSidebar()" routerLink='/profile'></i>
+        <i class="fas fa-arrow-left fa-2x" (click)="toggleSidebar()"></i>
       </div>
     </div>
 
@@ -20,7 +20,7 @@
       <h4>KaufKnecht</h4>
 
       <div class="icon-container align-self-center mr-3">
-        <i class="fas fa-filter fa-2x" *ngIf="showFilterIcon()"></i>
+        <i class="fas fa-sort-amount-down fa-2x" *ngIf="showFilterIcon()"></i>
       </div>
     </nav>
 

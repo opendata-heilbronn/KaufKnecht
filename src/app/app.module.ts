@@ -14,6 +14,7 @@ import { MyTransactionsComponent } from './components/my-transactions/my-transac
 import { TransactionListDetailsComponent } from './components/transaction-list-details/transaction-list-details.component';
 import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
 import { SidebarModule } from 'ng-sidebar';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SidebarModule } from 'ng-sidebar';
     MyTransactionsComponent,
     TransactionListDetailsComponent,
     MyTransactionsDetailsComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
