@@ -1,9 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="/me">Meine Aufträge</a>
-    </li>
-    <li class="breadcrumb-item active" *ngIf="id != 'new'">{{ id }}</li>
+    <li class="breadcrumb-item"><a href="/me">Meine Aufträge</a></li>
+    <li class="breadcrumb-item active" *ngIf="id != 'new'">Auftrag von {{ getUserNameWithKey('') }}</li>
     <li class="breadcrumb-item active" *ngIf="id == 'new'">Neuer Auftrag</li>
   </ol>
 </nav>
@@ -53,22 +51,20 @@
         <h3 class="mb-0">{{item.title}}</h3>
         <p class="mb-0">{{item.description}}</p>
       </div>
-      <div>
-        <h1>
+
+      <div class="mr-2">
+        <h4>
           <span class="badge badge-pill badge-primary">{{item.count}}</span>
-        </h1>
+        </h4>
       </div>
 
-      <div class="d-flex justify-content-between align-items-center">
-        <span class="mr-4">9st.</span>
-        <div class="flex-column justify-content-between">
-          <button type="button" class="btn btn-outline-primary mb-1">
-            <i class="fas fa-plus"></i>
-          </button>
-          <button type="button" class="btn btn-outline-primary mb-1">
-            <i class="fas fa-minus"></i>
-          </button>
-        </div>
+      <div class="flex-column justify-content-between">
+        <button (click)="increaseProductCount(item)" type="button" class="btn btn-outline-primary mb-1">
+          <i class="fas fa-plus"></i>
+        </button>
+        <button (click)="decreaseProductCount(item)" type="button" class="btn btn-outline-primary mb-1">
+          <i class="fas fa-minus"></i>
+        </button>
       </div>
     </div>
   </div>

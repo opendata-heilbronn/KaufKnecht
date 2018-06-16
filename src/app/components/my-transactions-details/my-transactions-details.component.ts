@@ -36,7 +36,22 @@ export class MyTransactionsDetailsComponent implements OnInit {
 
   }
 
+  increaseProductCount(product: ProductModel) {
+    product['count']++;
+  }
+
+  decreaseProductCount(product: ProductModel) {
+    product['count']--;
+
+    if (product['count'] == 0) {
+      var index = this.transaction.items.indexOf(product);
+      this.transaction.items.splice(index, 1);
+    }
+  }
+
   addProduct(product: ProductModel): void {
+    console.log(product);
+    product['count'] = 1;
     this.transaction.items.push(product);
     this.showAutocomplete = false;
     this.searchProductString = '';
@@ -67,6 +82,11 @@ export class MyTransactionsDetailsComponent implements OnInit {
     }
 
     this.router.navigate(['/me']);
+  }
+
+  // TODO: Implement name querying
+  getUserNameWithKey(creatorId: string) {
+    return "Jörg";
   }
 
   constructor(
