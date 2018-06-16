@@ -12,8 +12,31 @@ import { TransactionModel } from '../../models/transaction.model';
 })
 export class TransactionListComponent implements OnInit {
 
+  showFilter =false;
   user: User;
   transactions: TransactionModel[] = [];
+
+  orderByDesc() {
+    this.showFilter = false;
+
+    this.transactions = this.transactions.sort((a,b) => {
+      if (a.provision == null || a.provision < b.provision) {
+        return -1;
+      }
+
+      if (b.provision == null || a.provision > b.provision) {
+        return 1;
+      }
+
+      return 0;
+    });
+  }
+
+  orderByAsc() {
+    this.showFilter = false;
+    this.orderByDesc();
+    this.transactions = this.transactions.reverse();
+  }
 
   constructor(
     private db: AngularFireDatabase,
