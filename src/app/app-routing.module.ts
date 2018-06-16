@@ -7,6 +7,7 @@ import { TransactionListComponent } from './components/transaction-list/transact
 import { MyTransactionsComponent } from './components/my-transactions/my-transactions.component';
 import { TransactionListDetailsComponent } from './components/transaction-list-details/transaction-list-details.component';
 import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
+import { ReceiptPhotoComponent } from './components/receipt-photo/receipt-photo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'transactions/:id', component: TransactionListDetailsComponent },
   { path: 'me', component: MyTransactionsComponent },
   { path: 'me/:id', component: MyTransactionsDetailsComponent },
+  { path: 'receiptphoto', component: ReceiptPhotoComponent },
 
   { path: '**', component: PageNotFoundComponent },
 ];
