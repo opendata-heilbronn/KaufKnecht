@@ -9,7 +9,7 @@ export class TransactionModel extends BaseModel {
   executor: string;
 
   provision: number;
-  claimed: Date;
+  claimed: string;
 
   receiptImage: string;
   receiptDate: Date;

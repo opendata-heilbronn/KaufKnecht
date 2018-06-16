@@ -34,8 +34,14 @@
 
 <div class="d-flex bg-dark" style="position: fixed; bottom: 0; left: 0; right: 0">
 
-    <button type="button" class="btn btn-dark btn-lg" routerLink="..">Abbrechen</button>
-    <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="claim()" *ngIf="!transaction.claimed">verbindlich Einkaufen</button>
-    <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="finish()" *ngIf="transaction.claimed">Einkauf abschließen</button>
-  
-  </div>
+  <button type="button" class="btn btn-dark btn-lg" routerLink="..">Abbrechen</button>
+  <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="claim()" *ngIf="!transaction.claimed && !transaction.receiptDate">verbindlich Einkaufen</button>
+  <button *ngIf="transaction.claimed && !transaction.receiptDate" type="button" class="btn btn-primary btn-lg ml-auto" (click)="claim()"
+    style="overflow: hidden; position: relative;">
+    Beleg hochladen
+    <input type="file" (change)="onFileChanged($event)" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: 0;"
+      *ngIf="transaction.claimed != null && !transaction.receiptDate" />
+  </button>
+  <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="finish()" *ngIf="transaction.delivered">Einkauf abschließen</button>
+
+</div>
