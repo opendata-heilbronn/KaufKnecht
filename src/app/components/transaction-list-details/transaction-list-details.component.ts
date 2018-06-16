@@ -11,8 +11,8 @@ import { TransactionModel } from '../../models/transaction.model';
 })
 export class TransactionListDetailsComponent implements OnInit {
 
-  private id: String;
-  private transaction: TransactionModel;
+  id: String;
+  transaction: TransactionModel;
 
   constructor(
     private db: AngularFireDatabase,
