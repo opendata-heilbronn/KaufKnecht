@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionModel } from './../../models/transaction.model';
 import { ProductModel } from '../../models/product.model';
 import { ListEntryModel } from '../../models/list-entry.model';
@@ -42,7 +42,8 @@ export class MyTransactionsDetailsComponent implements OnInit {
     }
     else {
       this.db.object('transactions/' + this.id).remove();
-      window.location.href = "/me";
+
+      this.router.navigate(['/me']);
     }
   }
 
@@ -54,12 +55,13 @@ export class MyTransactionsDetailsComponent implements OnInit {
       this.db.object('transactions/' + this.id).set(this.transaction);
     }
 
-    window.location.href = "/me";
+    this.router.navigate(['/me']);
   }
 
   constructor(
     private db: AngularFireDatabase,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
 

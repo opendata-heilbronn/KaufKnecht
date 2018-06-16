@@ -11,6 +11,7 @@ export class LandingpageComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    window.localStorage.setItem('userid', "12345"); // TODO: Implement Auth
   }
 
 }
