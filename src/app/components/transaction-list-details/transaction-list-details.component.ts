@@ -53,4 +53,12 @@ export class TransactionListDetailsComponent implements OnInit {
   save() {
     this.db.object('transactions/' + this.id).set(this.transaction);
   }
+
+  itemClick(item) {
+    if(!item.checked)
+      item.checked = true;
+    else
+      item.checked = false;
+    console.log(this.transaction);
+  }
 }

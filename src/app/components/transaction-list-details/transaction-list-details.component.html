@@ -13,18 +13,18 @@
 </div>
 
 <div class="list-group" *ngIf="transaction">
-  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of transaction.items">
+  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of transaction.items" (click)="itemClick(item)">
     <div class="d-flex">
       <div class="align-self-center">
         <img class="productImage" src="{{item.images[0]}}">
       </div>
       <div class="ml-5 mr-5 w-100">
-        <h3 class="mb-0">{{item.title}} {{item.subtitle}}</h3>
+        <h3 class="mb-0" [ngStyle]="{'text-decoration': item.checked ? 'line-through' : ''}">{{item.title}} {{item.subtitle}}</h3>
         <p class="mb-0">{{item.description}}</p>
       </div>
-      <div class="align-self-center">
+      <div class="align-self-center productCount">
         <h1>
-          <span class="badge badge-pill badge-primary">{{item.count}}</span>
+          <span [ngClass]="{'badge': true, 'badge-pill': true, 'badge-secondary': item.checked, 'badge-primary': !item.checked}">{{item.count}}</span>
         </h1>
       </div>
     </div>
@@ -35,7 +35,7 @@
 <div class="d-flex bg-dark" style="position: fixed; bottom: 0; left: 0; right: 0">
 
   <button type="button" class="btn btn-dark btn-lg" routerLink="..">Abbrechen</button>
-  <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="claim()" *ngIf="!transaction.claimed && !transaction.receiptDate">verbindlich Einkaufen</button>
+  <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="claim()" *ngIf="!transaction.claimed && !transaction.receiptDate">Verbindlich Einkaufen</button>
   <button *ngIf="transaction.claimed && !transaction.receiptDate" type="button" class="btn btn-primary btn-lg ml-auto" (click)="claim()"
     style="overflow: hidden; position: relative;">
     Beleg hochladen
