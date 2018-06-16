@@ -16,7 +16,6 @@ import { TransactionListDetailsComponent } from './components/transaction-list-d
 import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
 import { SidebarModule } from 'ng-sidebar';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -39,7 +38,7 @@ import { AuthService } from './services/auth.service';
     SidebarModule.forRoot(),
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
