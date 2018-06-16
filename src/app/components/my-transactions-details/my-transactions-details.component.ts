@@ -16,6 +16,7 @@ import { User } from 'firebase';
 })
 export class MyTransactionsDetailsComponent implements OnInit {
 
+  showReceipt = false;
   new: boolean = false;
   id: string;
   transaction: TransactionModel;
