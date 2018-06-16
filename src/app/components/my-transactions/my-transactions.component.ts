@@ -27,9 +27,14 @@ export class MyTransactionsComponent implements OnInit {
 
     this.auth.user.subscribe(user => {
       if (user == null) {
-        this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        this.auth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
           return;
       }
+
+     /* if (user == null) {
+        this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+          return;
+      } */
 
       this.user = user;
       this.loadData();

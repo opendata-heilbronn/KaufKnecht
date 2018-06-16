@@ -45,7 +45,7 @@ export class TransactionListComponent implements OnInit {
   ngOnInit() {
     this.auth.user.subscribe(user => {
       if (user == null) {
-        this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        this.auth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
           return;
       }
 
