@@ -86,7 +86,11 @@ export class MyTransactionsDetailsComponent implements OnInit {
 
   // TODO: Implement name querying
   getUserNameWithKey(creatorId: string) {
-    return this.user.displayName;
+    if (this.user) {
+      return this.user.displayName;
+    }
+
+    return "";
   }
 
   constructor(
