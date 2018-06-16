@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TransactionModel } from './../../models/transaction.model';
 import { ProductModel } from '../../models/product.model';
-import { ListEntryModel } from '../../models/list-entry.model';
 import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
 
 import {NgForm} from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from 'firebase';
 @Component({
   selector: 'app-my-transactions-details',
   templateUrl: './my-transactions-details.component.html',
@@ -13,12 +15,15 @@ import {NgForm} from '@angular/forms';
 })
 export class MyTransactionsDetailsComponent implements OnInit {
 
+  new: boolean = false;
   id: string;
   transaction: TransactionModel;
   products: ProductModel[];
 
   searchProductString: string = '';
   showAutocomplete: boolean = false;
+
+  user: User;
 
   getProducts() {
     if (this.products == null)
@@ -48,7 +53,11 @@ export class MyTransactionsDetailsComponent implements OnInit {
 
   save() {
     console.log(this.transaction);
-    if (this.id == 'new') {
+
+    this.transaction.creator = this.user.uid;
+
+
+    if (this.new) {
       this.db.list('transactions').push(this.transaction);
     } else {
       this.db.object('transactions/' + this.id).set(this.transaction);
@@ -59,9 +68,18 @@ export class MyTransactionsDetailsComponent implements OnInit {
 
   constructor(
     private db: AngularFireDatabase,
+    private auth: AngularFireAuth,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.auth.user.subscribe(user => {
+      if (user == null) {
+        this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+          return;
+      }
+
+      this.user = user;
+    });
 
     this.db.list<ProductModel>('data').valueChanges().subscribe(result => {
       this.products = result;
@@ -78,8 +96,9 @@ export class MyTransactionsDetailsComponent implements OnInit {
       }
 
       if (params.id && params.id == 'new') {
+        this.new = true;
+
         this.transaction = new TransactionModel();
-        this.transaction.creator = '123';
         this.transaction.created = new Date();
         this.transaction.items = [];
       }
