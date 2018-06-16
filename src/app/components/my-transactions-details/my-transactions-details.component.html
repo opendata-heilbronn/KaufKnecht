@@ -1,6 +1,8 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink="/me">Meine Aufträge</a></li>
+    <li class="breadcrumb-item">
+      <a routerLink="/me">Meine Aufträge</a>
+    </li>
     <li class="breadcrumb-item active" *ngIf="id != 'new'">Auftrag von {{ getUserNameWithKey('') }}</li>
     <li class="breadcrumb-item active" *ngIf="id == 'new'">Neuer Auftrag</li>
   </ol>
@@ -11,7 +13,6 @@
   <input type="text" class="form-control" placeholder="Produkt suchen" aria-label="Username" aria-describedby="basic-addon1"
     [(ngModel)]="searchProductString" (focus)="showAutocomplete = true">
 </div>
-
 
 <div class="list-group" *ngIf="showAutocomplete">
   <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let product of getProducts()" (click)="addProduct(product)">
@@ -33,45 +34,58 @@
 </div>
 
 
+
 <div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="transaction == null || transaction.items.length == 0">
   <div class="d-flex">
     In deiner Einkaufsliste sind keine Produkte vorhanden. Füge einige hinzu, indem du die Suche benutzt.
   </div>
 </div>
 
-<div class="list-group" *ngIf="!showAutocomplete && transaction && !showReceipt">
+<div *ngIf="!showAutocomplete && transaction && !showReceipt">
+  <div class="list-group">
+    <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of transaction.items">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <img class="productImage" src="{{item.images[0]}}">
+        </div>
+        <div class="ml-5 mr-2 w-100">
+          <h3 class="mb-0">{{item.title}}</h3>
+          <p class="mb-0">{{item.description}}</p>
+        </div>
 
+        <div class="mr-2">
+          <h4>
+            <span class="badge badge-pill badge-primary">{{item.count}}</span>
+          </h4>
+        </div>
 
-  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of transaction.items">
-    <div class="d-flex justify-content-between align-items-center">
-      <div>
-        <img class="productImage" src="{{item.images[0]}}">
-      </div>
-      <div class="ml-5 mr-2 w-100">
-        <h3 class="mb-0">{{item.title}}</h3>
-        <p class="mb-0">{{item.description}}</p>
-      </div>
-
-      <div class="mr-2">
-        <h4>
-          <span class="badge badge-pill badge-primary">{{item.count}}</span>
-        </h4>
-      </div>
-
-      <div class="flex-column justify-content-between">
-        <button (click)="increaseProductCount(item)" type="button" class="btn btn-outline-primary mb-1">
-          <i class="fas fa-plus"></i>
-        </button>
-        <button (click)="decreaseProductCount(item)" type="button" class="btn btn-outline-primary mb-1">
-          <i class="fas fa-minus"></i>
-        </button>
+        <div class="flex-column justify-content-between">
+          <button (click)="increaseProductCount(item)" type="button" class="btn btn-outline-primary mb-1">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button (click)="decreaseProductCount(item)" type="button" class="btn btn-outline-primary mb-1">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Provision</span>
+    </div>
+    <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="transaction.provision">
+    <div class="input-group-append">
+        <span class="input-group-text"> €</span>
+      </div>
+  </div>
+
 </div>
 
+
 <div *ngIf="showReceipt">
-  <img [src]="transaction.receiptImage" style="max-width: 100%;"  />
+  <img [src]="transaction.receiptImage" style="max-width: 100%;" />
 </div>
 
 
