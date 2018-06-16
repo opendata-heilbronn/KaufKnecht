@@ -11,7 +11,9 @@
         <div>
             <h5 class="mb-1">{{ transaction.items.length }} Artikel</h5>
             <small>
-              <span *ngFor="let item of transaction.items">{{ item.title }}, </span>
+              <span *ngFor="let item of transaction.items; let last = last">{{item.title}}<span *ngIf="!last">, </span>
+              </span>
+              
             </small>
         </div>
         <i class="fas fa-shipping-fast fa-2x"></i>
