@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/me">Meine Aufträge</a></li>
+    <li class="breadcrumb-item"><a routerLink="/me">Meine Aufträge</a></li>
     <li class="breadcrumb-item active" *ngIf="id != 'new'">Auftrag von {{ getUserNameWithKey('') }}</li>
     <li class="breadcrumb-item active" *ngIf="id == 'new'">Neuer Auftrag</li>
   </ol>
