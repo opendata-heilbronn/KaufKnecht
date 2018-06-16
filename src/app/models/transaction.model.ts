@@ -4,7 +4,7 @@ import { BaseModel } from './_base.model';
 
 export class TransactionModel extends BaseModel {
   creator: string; // id des users
-  created: Date;
+  created: string;
 
   executor: string;
 

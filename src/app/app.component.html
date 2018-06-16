@@ -3,9 +3,22 @@
   <ng-sidebar sidebarClass="sidebar" [(opened)]="opened" showBackdrop=true mode="over" closeOnClickBackdrop=true>
 
     <div class="sidebar-content">
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <i class="fas fa-arrow-left fa-2x" (click)="toggleSidebar()"></i>
+        </li>
+        <li class="list-group-item" *ngIf="user">
+          Eingeloggt als {{ user.displayName }}
+        </li>
+        <li class="list-group-item" *ngIf="!user">Sie sind nicht eingeloggt</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+
+
       <div d-flex justify-content-between>
         <i class="fas fa-user fa-2x" (click)="toggleSidebar()" routerLink='/profile'></i>
-        <i class="fas fa-arrow-left fa-2x" (click)="toggleSidebar()"></i>
       </div>
     </div>
 
@@ -17,7 +30,7 @@
         <i class="fas fa-bars fa-2x" (click)="toggleSidebar()"></i>
       </div>
 
-      <img class="logo" src="/assets/KaufKnecht.svg" (click)="routeToHome()"/>
+      <img class="logo" src="/assets/KaufKnecht.svg" (click)="routeToHome()" />
 
       <div class="icon-container align-self-center mr-3">
         <i class="fas fa-sort-amount-down fa-2x" *ngIf="showFilterIcon()"></i>

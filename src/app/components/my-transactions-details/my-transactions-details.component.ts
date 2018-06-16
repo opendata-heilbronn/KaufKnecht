@@ -4,6 +4,7 @@ import { TransactionModel } from './../../models/transaction.model';
 import { ProductModel } from '../../models/product.model';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import * as moment from 'moment';
 
 import {NgForm} from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -56,6 +57,7 @@ export class MyTransactionsDetailsComponent implements OnInit {
     console.log(this.transaction);
 
     this.transaction.creator = this.user.uid;
+    this.transaction.created = moment().toISOString();
 
 
     if (this.new) {
@@ -101,7 +103,6 @@ export class MyTransactionsDetailsComponent implements OnInit {
         this.new = true;
 
         this.transaction = new TransactionModel();
-        this.transaction.created = new Date();
         this.transaction.items = [];
       }
 
