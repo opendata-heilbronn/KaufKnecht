@@ -17,8 +17,8 @@
             </small>
         </div>
         <div class="d-flex flex-column justify-content-center">
-            <i icon-color [ngClass]="{'fas' : true, 'fa-2x' : true, 'fa-circle-notch' : transaction.claimed === undefined, 'fa-shopping-basket' : transaction.claimed  !== undefined}"></i>
-            <small>{{transaction.claimed === undefined ? 'Eingestellt' : 'Reserviert'}}</small>
+            <i icon-color [ngClass]="{'fas' : true, 'fa-2x' : true, 'fa-circle-notch' : transaction.claimed === undefined, 'fa-shopping-basket' : transaction.claimed  !== undefined && transaction.receiptImage === undefined, 'fa-shipping-fast': transaction.receiptImage !== undefined}"></i>
+            <small>{{transaction.claimed === undefined ? 'Eingestellt' : transaction.receiptImage === undefined ? 'Reserviert' : 'Auf dem Weg'}}</small>
         </div>
         </div>
     </a>
