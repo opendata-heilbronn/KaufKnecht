@@ -6,6 +6,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
@@ -34,7 +35,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

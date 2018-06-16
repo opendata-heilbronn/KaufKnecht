@@ -113,7 +113,7 @@ export class JsonHelper {
                 if (key.match(/\$/)) {
                     return;
                 }
-if (
+                if (
                     Array.isArray(obj[key]) === true ||
                     typeof obj[key] === 'function'
                 ) {

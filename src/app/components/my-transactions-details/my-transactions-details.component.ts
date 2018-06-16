@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TransactionModel } from './../../models/transaction.model';
 import { ProductModel } from '../../models/product.model';
 import { ListEntryModel } from '../../models/list-entry.model';
+import { AngularFireDatabase } from 'angularfire2/database';
 
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-my-transactions-details',
   templateUrl: './my-transactions-details.component.html',
@@ -10,40 +13,77 @@ import { ListEntryModel } from '../../models/list-entry.model';
 })
 export class MyTransactionsDetailsComponent implements OnInit {
 
-  private mockItems: ListEntryModel[] = [];
-  private mockItem: ProductModel = new ProductModel(null);
-  itemList: any[] = [];
+  id: string;
+  transaction: TransactionModel;
+  products: ProductModel[];
 
+  searchProductString: string = '';
+  showAutocomplete: boolean = false;
 
-  getProductByID(id: string): ProductModel {
-    if (id == "1") {
-      return this.mockItem;
+  getProducts() {
+    if (this.products == null)
+      return [];
+
+    return this.products.filter(m => {
+      return m.title && m.title.toLowerCase().indexOf(this.searchProductString.toLowerCase()) > -1;
+    }).slice(0, 20);
+
+  }
+
+  addProduct(product: ProductModel): void {
+    this.transaction.items.push(product);
+    this.showAutocomplete = false;
+    this.searchProductString = '';
+  }
+
+  clear() {
+    if (this.id == 'new') {
+      this.transaction.items = [];
     }
-    else return null;
+    else {
+      this.db.object('transactions/' + this.id).remove();
+      window.location.href = "/me";
+    }
   }
 
-  constructor(private route: ActivatedRoute) {
+  save() {
+    console.log(this.transaction);
+    if (this.id == 'new') {
+      this.db.list('transactions').push(this.transaction);
+    } else {
+      this.db.object('transactions/' + this.id).set(this.transaction);
+    }
 
-    //mock data
-    this.mockItem.id = "1";
-    this.mockItem.description = "z.B. Rittersporn oder Löwenmäulchen, Topf: 13 cm ø";
-    this.mockItem.title = "VitaSafe Melonen-Mix";
-    this.mockItem.images = ["https://media.kaufland.com/images/PPIM/Lago/c16221167_6.jpg"];
-
-    this.mockItems.push(new ListEntryModel(null));
-    this.mockItems[0].id = "1";
-    this.mockItems[0].count = 5;
-
-    this.route.params.subscribe(params => {
-      console.log(params);
-    });
+    window.location.href = "/me";
   }
+
+  constructor(
+    private db: AngularFireDatabase,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mockItems.forEach(item => {
-      let pm: any = this.getProductByID(item.id);
-      pm.count = item.count;
-      this.itemList.push(pm);
+
+    this.db.list<ProductModel>('data').valueChanges().subscribe(result => {
+      this.products = result;
+    });
+
+    this.route.params.subscribe(params => {
+      if (params.id && params.id != 'new') {
+        this.id = params.id;
+          // ToDo: Transaction laden
+          this.db.object('transactions/' + params.id).valueChanges().subscribe(result => {
+          console.log(result);
+            this.transaction = result;
+          });
+      }
+
+      if (params.id && params.id == 'new') {
+        this.transaction = new TransactionModel();
+        this.transaction.creator = '123';
+        this.transaction.created = new Date();
+        this.transaction.items = [];
+      }
+
     });
   }
 

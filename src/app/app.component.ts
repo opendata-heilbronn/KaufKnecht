@@ -16,7 +16,12 @@ export class AppComponent {
   public showFilterIcon() {
     return this.router.url === '/transactions';
   }
- 
+
+  public showSaveIcon() {
+    console.log(this.router);
+    return this.router.url === '/me/:id';
+  }
+
   public toggleSidebar() {
     this.opened = !this.opened;
   }

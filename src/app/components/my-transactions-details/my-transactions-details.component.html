@@ -1,5 +1,49 @@
-<div class="list-group">
-  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of itemList">
+
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/me">Meine Aufträge</a></li>
+    <li class="breadcrumb-item active">{{ id }}</li>
+  </ol>
+</nav>
+
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Produkt suchen" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="searchProductString" (focus)="showAutocomplete = true">
+</div>
+
+
+<div class="list-group" *ngIf="showAutocomplete">
+  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let product of getProducts()" (click)="addProduct(product)">
+      <div class="d-flex">
+        <div class="align-self-center">
+          <img class="productImage" src="{{product.images[0]}}">
+        </div>
+        <div class="ml-5 mr-5 w-100">
+          <h3 class="mb-0">{{product.title}}</h3>
+          <p class="mb-0">{{product.description}}</p>
+        </div>
+        <div class="align-self-center">
+          <h1>
+            <span class="badge badge-pill badge-primary">{{product.count}}</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngIf="transaction == null || transaction.items.length == 0">
+      <div class="d-flex">
+          In deiner Einkaufsliste sind keine Produkte vorhanden. Füge einige hinzu, indem du die Suche benutzt.
+      </div>
+    </div>
+
+<div class="list-group" *ngIf="!showAutocomplete && transaction">
+
+
+  <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of transaction.items">
       <div class="d-flex">
         <div class="align-self-center">
           <img class="productImage" src="{{item.images[0]}}">
@@ -15,4 +59,12 @@
         </div>
       </div>
     </div>
+</div>
+
+
+<div class="d-flex bg-dark" style="position: fixed; bottom: 0; left: 0; right: 0">
+
+  <button type="button" class="btn btn-dark btn-lg" (click)="clear()">Löschen</button>
+  <button type="button" class="btn btn-primary btn-lg ml-auto" (click)="save()">Speichern</button>
+
 </div>

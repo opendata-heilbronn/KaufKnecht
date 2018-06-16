@@ -20,9 +20,4 @@ export class TransactionModel extends BaseModel {
   ratingExecutor: number;
 
   items: ListEntryModel[];
-
-  constructor(data: any) {
-    super();
-    super.$map(this, data);
-  }
 }

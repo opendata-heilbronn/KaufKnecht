@@ -14,9 +14,4 @@ export class ProductModel extends BaseModel {
   subtitle: string;
   title: string;
   unit: string;
-
-  constructor(data: any) {
-    super();
-    super.$map(this, data);
-  }
 }
