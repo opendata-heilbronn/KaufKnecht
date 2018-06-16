@@ -16,6 +16,7 @@ import { TransactionListDetailsComponent } from './components/transaction-list-d
 import { MyTransactionsDetailsComponent } from './components/my-transactions-details/my-transactions-details.component';
 import { SidebarModule } from 'ng-sidebar';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ReceiptPhotoComponent } from './components/receipt-photo/receipt-photo.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     TransactionListDetailsComponent,
     MyTransactionsDetailsComponent,
     ProfileComponent,
+    ReceiptPhotoComponent,
   ],
   imports: [
     BrowserModule,
