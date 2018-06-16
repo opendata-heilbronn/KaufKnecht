@@ -4,7 +4,8 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/me">Meine Aufträge</a></li>
-    <li class="breadcrumb-item active">{{ id }}</li>
+    <li class="breadcrumb-item active" *ngIf="id != 'new'">{{ id }}</li>
+    <li class="breadcrumb-item active" *ngIf="id == 'new'">Neuer Auftrag</li>
   </ol>
 </nav>
 
@@ -21,8 +22,8 @@
           <img class="productImage" src="{{product.images[0]}}">
         </div>
         <div class="ml-5 mr-5 w-100">
-          <h3 class="mb-0">{{product.title}}</h3>
-          <p class="mb-0">{{product.description}}</p>
+          <p class="mb-0">{{product.title}}</p>
+          <p class="mb-0 text-truncate d-inline-block">{{product.description}}</p>
         </div>
         <div class="align-self-center">
           <h1>
