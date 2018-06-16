@@ -12,8 +12,8 @@ import * as moment from 'moment';
 })
 export class TransactionListDetailsComponent implements OnInit {
 
-  private id: String;
-  private transaction: TransactionModel;
+  id: String;
+  transaction: TransactionModel;
 
   constructor(
     private db: AngularFireDatabase,

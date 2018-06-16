@@ -36,7 +36,16 @@ export class MyTransactionsComponent implements OnInit {
     });
 
 
-    
+
+  }
+
+  getItemAmount(items: any) {
+    var sum = 0;
+
+    for (let item of items) {
+      sum += item.count;
+    }
+    return sum;
   }
 
 
