@@ -71,8 +71,8 @@ export class MyTransactionsDetailsComponent implements OnInit {
       if (params.id && params.id != 'new') {
         this.id = params.id;
           // ToDo: Transaction laden
-          this.db.object('transactions/' + params.id).valueChanges().subscribe(result => {
-          console.log(result);
+          this.db.object('transactions/' + params.id).valueChanges().subscribe((result: TransactionModel) => {
+            console.log(result);
             this.transaction = result;
           });
       }
