@@ -41,6 +41,11 @@ export class MyTransactionsDetailsComponent implements OnInit {
 
   decreaseProductCount(product: ProductModel) {
     product['count']--;
+
+    if (product['count'] == 0) {
+      var index = this.transaction.items.indexOf(product);
+      this.transaction.items.splice(index, 1);
+    }
   }
 
   addProduct(product: ProductModel): void {
