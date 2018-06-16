@@ -5,7 +5,7 @@
 </nav>
 
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let transaction of transactions">
+  <a routerLink="{{transaction.$key}}" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let transaction of transactions">
     <div class="d-flex w-100 justify-content-between align-items-center">
       <div>
         <h5 class="mb-1">{{ transaction.items.length }} Artikel</h5>
