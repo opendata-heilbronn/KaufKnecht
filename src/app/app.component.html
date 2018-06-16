@@ -12,8 +12,8 @@
           Eingeloggt als {{ user.displayName }}
         </li>
         <li class="list-group-item" *ngIf="!user">Sie sind nicht eingeloggt</li>
-        <li class="list-group-item"><a routerLink="/me">Eigene Aufträge</a></li>
-        <li class="list-group-item"><a routerLink="/transactions">Aufträge aus der Umgebung</a></li>
+        <li class="list-group-item"><a routerLink="/me" (click)="toggleSidebar()">Eigene Aufträge</a></li>
+        <li class="list-group-item"><a routerLink="/transactions" (click)="toggleSidebar()">Aufträge aus der Umgebung</a></li>
       </ul>
     </div>
 
