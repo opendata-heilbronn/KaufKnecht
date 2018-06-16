@@ -53,7 +53,6 @@ export class MyTransactionsComponent implements OnInit {
     return sum;
   }
 
-
   loadData() {
     this.db.object('transactions').valueChanges().subscribe(result => {
 
