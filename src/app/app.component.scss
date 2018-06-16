@@ -7,6 +7,15 @@ nav h4 {
   display: inline-block;
 }
 
+nav .logo {
+  max-height: 40px;
+  margin: 10px 0;
+}
+
+nav .logo:hover {
+  cursor: pointer;
+}
+
 .toggle-sidebar {
   display: inline-block
 }

@@ -22,6 +22,17 @@ export class AppComponent {
     return this.router.url === '/me/:id';
   }
 
+  // /me includes /me/:id too
+  public routeToHome() {
+    if (this.router.url === '/me') {
+      this.router.navigate(['/me']);
+    } else if (this.router.url === '/transactions') {
+      this.router.navigate(['/transactions']);
+    } else {
+      this.router.navigate(['/'])
+    }
+  }
+
   public toggleSidebar() {
     this.opened = !this.opened;
   }
