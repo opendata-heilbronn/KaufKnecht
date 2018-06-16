@@ -1,5 +1,5 @@
 
-import { ListEntryModel } from './list-entry.model';
+import { ProductModel } from './product.model';
 import { BaseModel } from './_base.model';
 
 export class TransactionModel extends BaseModel {
@@ -19,5 +19,5 @@ export class TransactionModel extends BaseModel {
   ratingCreator: number;
   ratingExecutor: number;
 
-  items: ListEntryModel[];
+  items: ProductModel[];
 }
