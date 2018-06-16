@@ -16,7 +16,7 @@
               
             </small>
         </div>
-        <i class="fas fa-shipping-fast fa-2x"></i>
+        <i icon-color [ngClass]="{'fas' : true, 'fa-2x' : true, 'fa-circle-notch' : transaction.claimed === undefined, 'fa-shopping-basket' : transaction.claimed  !== undefined}"></i>
       </div>
     </a>
   </div>

@@ -39,7 +39,6 @@ export class MyTransactionsComponent implements OnInit {
     
   }
 
-
   loadData() {
     this.db.object('transactions').valueChanges().subscribe(result => {
 
