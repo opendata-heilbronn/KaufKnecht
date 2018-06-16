@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { TransactionModel } from '../../models/transaction.model';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-transaction-list-details',
@@ -11,8 +12,8 @@ import { TransactionModel } from '../../models/transaction.model';
 })
 export class TransactionListDetailsComponent implements OnInit {
 
-  private id: String;
-  private transaction: TransactionModel;
+  id: String;
+  transaction: TransactionModel;
 
   constructor(
     private db: AngularFireDatabase,
@@ -30,5 +31,26 @@ export class TransactionListDetailsComponent implements OnInit {
         });
       }
     });
+  }
+
+  claim() {
+    this.transaction.claimed = moment().toISOString();
+    this.save();
+  }
+
+  onFileChanged($event) {
+    const file = $event.target.files[0]
+    console.log(file);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.transaction.receiptImage = reader.result;
+      this.save();
+    };
+  }
+
+  save() {
+    this.db.object('transactions/' + this.id).set(this.transaction);
   }
 }
