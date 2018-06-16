@@ -1,15 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from '@firebase/auth-types';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
   title = 'app';
+  user: User;
 
-  constructor(private router: Router) {}
+  ngOnInit(): void {
+    this.auth.user.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  constructor(
+    private router: Router,
+    private auth: AngularFireAuth) {}
 
   public opened: boolean = false;
 
