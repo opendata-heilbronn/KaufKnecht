@@ -27,9 +27,20 @@ nav h4 {
 
 .sidebar-content {
   height: 100%;
+  width: 80vw;
   background-color: white;
-  box-shadow: 10px 10px 12px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 0.25);
+
+  padding: 16px 16px;
 }
+
+@media screen and (min-width: 800px) {
+  .sidebar-content {
+    width: 600px;
+  }
+}
+
+
 .icon-container {
   align-items: center;
 }

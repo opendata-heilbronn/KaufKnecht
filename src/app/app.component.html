@@ -1,9 +1,14 @@
 <ng-sidebar-container class="sidebar-wrapper">
   <!-- A sidebar -->
   <ng-sidebar sidebarClass="sidebar" [(opened)]="opened" showBackdrop=true mode="over" closeOnClickBackdrop=true>
+
     <div class="sidebar-content">
-      <h1>H!</h1>
+      <div d-flex justify-content-between>
+        <i class="fas fa-user fa-2x"></i>
+        <i class="fas fa-arrow-left fa-2x"></i>
+      </div>
     </div>
+
   </ng-sidebar>
 
   <div ng-sidebar-content class="content">
